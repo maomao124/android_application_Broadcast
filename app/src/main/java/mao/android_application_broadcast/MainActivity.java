@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -49,6 +50,18 @@ public class MainActivity extends AppCompatActivity
             {
                 Intent intent = new Intent("mao.android_application_broadcast.b2");
                 sendOrderedBroadcast(intent, null);
+            }
+        });
+
+        findViewById(R.id.Button3).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent("mao.android_application_broadcast.receiver.MyReceiver");
+                intent.setPackage("mao.android_application_broadcast");
+                sendBroadcast(intent);
+
             }
         });
     }
